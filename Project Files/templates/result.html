@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Prediction Result</title>
+
+<style>
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+
+  /* ✅ SAME BACKGROUND IMAGE AS PREDICT PAGE */
+  background: url("/static/bg.jpg") no-repeat center center/cover;
+}
+
+/* 🔝 HOME BUTTON (Top-Right Corner — On Background) */
+.home-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+
+  padding: 10px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s;
+}
+
+.home-btn:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+/* 📦 LEFT SIDE RESULT CARD */
+.result-container {
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  transform: translateY(-50%);
+
+  width: 420px;
+  padding: 40px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+
+  color: #ffffff;
+
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+/* 🏷️ TITLE */
+.result-container h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+/* 📊 RESULT BOX */
+.result-box {
+  margin-top: 20px;
+  padding: 22px;
+  border-radius: 14px;
+
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* 🔘 SMALL GLASS BUTTON */
+.small-btn {
+  display: inline-block;
+  margin-top: 20px;
+
+  padding: 8px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s;
+}
+
+.small-btn:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<!-- 🔝 HOME BUTTON -->
+<a href="/" class="home-btn">Home</a>
+
+<!-- 📦 RESULT SECTION -->
+<div class="result-container">
+
+    <h2>Prediction Result</h2>
+
+    <p><strong>Transaction Status:</strong></p>
+
+    <div class="result-box">
+        {{ prediction_text }}
+    </div>
+
+</div>
+
+    <!-- 🔁 PREDICT AGAIN BUTTON -->
+    <a href="/predict_page" class="small-btn">Predict Again</a>
+
+</body>
+</html>

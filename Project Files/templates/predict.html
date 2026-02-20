@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fraud Detection</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+/* ===== FULL BACKGROUND ===== */
+body{
+  height:100vh;
+  background:url("static/bg.jpg") no-repeat center center/cover;
+  display:flex;
+  align-items:center;
+}
+
+/* ===== LEFT GLASS PANEL ===== */
+.form-box{
+  width:450px;
+  margin-left:80px;
+  padding:35px;
+
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.2);
+  box-shadow:0 0 40px rgba(0,0,0,0.6);
+
+  color:white;
+}
+
+/* ===== TITLE ===== */
+.form-box h2{
+  text-align:center;
+  margin-bottom:22px;
+  font-size:28px;
+}
+
+/* ===== INPUTS ===== */
+input, select{
+  width:100%;
+  padding:13px;
+  margin:8px 0;
+
+  border:none;
+  outline:none;
+  border-radius:10px;
+
+  background:rgba(255,255,255,0.12);
+  color:white;
+  font-size:14px;
+}
+
+input::placeholder{
+  color:#ddd;
+}
+
+select{
+  color:#eee;
+}
+
+/* ===== BUTTON ===== */
+button{
+  width:100%;
+  padding:14px;
+  margin-top:16px;
+
+  border:none;
+  border-radius:12px;
+
+  background:linear-gradient(45deg,#00c6ff,#0072ff);
+  color:white;
+  font-size:17px;
+  font-weight:600;
+
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #00c6ff;
+}
+
+
+
+/* ===== DROPDOWN STYLE ===== */
+select {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  /* Glass effect */
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Fix white invisible options */
+select option {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+/* Optional hover effect */
+select option:hover {
+  background-color: #1e293b;
+}
+
+/* ===== FLOATING BACKGROUND HOME BUTTON ===== */
+.home-btn {
+  position: fixed;   /* 👈 KEY: stays on screen */
+  top: 25px;
+  right: 30px;
+
+  padding: 12px 22px;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.3);
+
+  z-index: 9999;  /* 👈 ensures above everything */
+
+  transition: 0.3s;
+}
+
+/* Hover animation */
+.home-btn:hover {
+  background: linear-gradient(45deg,#00c6ff,#0072ff);
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #00c6ff;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+    <a href="/" class="home-btn"> Home </a>
+
+<div class="form-box">
+
+  
+  
+
+  <h2>💳 Fraud Detection</h2>
+
+  <form action="/predict" method="post">
+
+    <input type="number" name="step" placeholder="Transaction Step" required>
+
+    <!-- ENCODED TYPE VALUE -->
+    <input type="number" name="type" placeholder="Transaction Type (Encoded Value)" required>
+
+
+    <input type="number" step="any" name="amount" placeholder="Amount" required>
+
+    <input type="number" step="any" name="oldbalanceOrg" placeholder="Old Balance (Sender)" required>
+
+    <input type="number" step="any" name="newbalanceOrig" placeholder="New Balance (Sender)" required>
+
+    <input type="number" step="any" name="oldbalanceDest" placeholder="Old Balance (Receiver)" required>
+
+    <input type="number" step="any" name="newbalanceDest" placeholder="New Balance (Receiver)" required>
+
+    <!-- FLAGGED FRAUD -->
+     
+
+    <select name="isFlaggedFraud" required>
+      <option value="">Is Flagged Fraud?</option>
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+
+    <button type="submit">Predict</button>
+
+  </form>
+
+</div>
+
+</body>
+</html>
