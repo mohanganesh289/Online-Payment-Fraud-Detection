@@ -1,0 +1,18 @@
+.navbar .btn {
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.navbar .btn-primary {
+    background: #00d2ff;
+    border: none;
+}
+
+.navbar .btn-primary:hover {
+    background: #00a8cc;
+}
+
+select option:hover {
+  background-color: #1e293b;
+}
+
